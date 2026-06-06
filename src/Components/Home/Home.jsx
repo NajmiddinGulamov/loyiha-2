@@ -8,7 +8,7 @@ import {
   FaEdit,
 } from "react-icons/fa";
 
-function Home({ users, setUsers, getFilter }) {
+function Home({ users, setUsers, getFilter, Setboll }) {
   return (
     <div className="home">
       <div className="home__container">
@@ -60,7 +60,7 @@ function Home({ users, setUsers, getFilter }) {
                         <button className="delete-row-btn" title="O'chirish" onClick={() => getFilter(user.id)}>
                           <FaTrash />
                         </button>
-                        <button className="edit-row-btn" title="Edit">
+                        <button className="edit-row-btn" title="Edit" onClick={() => Setboll(true)}>
                           <FaEdit />
                         </button>
                       </td>

@@ -29,7 +29,7 @@ function App() {
       <Sidebar />
       <div className="main__container">
         <Navbar Setboll={Setboll} users={users} />
-        <Home users={users} setUsers={setUsers} getFilter={getFilter} />
+        <Home users={users} setUsers={setUsers} getFilter={getFilter} Setboll={Setboll}/>
       </div>
       {boll && <Modal Setboll={Setboll} getData={getData} />}
     </>
