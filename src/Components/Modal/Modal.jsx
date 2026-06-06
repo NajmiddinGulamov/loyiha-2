@@ -2,21 +2,21 @@ import "./Modal.css";
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
-function Modal() {
+function Modal({Setboll, getData}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // onAdd({
-    //   id: Date.now(),
-    //   name,
-    //   email,
-    //   phone: phone || "Kiritilmagan",
-    // });
-
+    let newObj = {
+      id: Math.random(100),
+      name: name,
+      email: email,
+      phone: phone,
+    };
+    getData(newObj)
+    Setboll(false)
     setName("");
     setEmail("");
     setPhone("");
@@ -27,7 +27,7 @@ function Modal() {
       <div className="modal-content">
         <div className="modal-header">
           <h2>Yangi foydalanuvchi</h2>
-          <button className="close-btn">
+          <button className="close-btn" onClick={() => Setboll(false)}>
             <FaTimes />
           </button>
         </div>
@@ -62,7 +62,7 @@ function Modal() {
             />
           </div>
           <div className="modal-footer">
-            <button type="button" className="cancel-btn">
+            <button type="button" className="cancel-btn" onClick={() => Setboll(false)}>
               Bekor qilish
             </button>
             <button type="submit" className="submit-btn">
